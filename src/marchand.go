@@ -13,6 +13,13 @@ func (c *Character) OpenMerchant() {
 	var choice int
 	fmt.Scanln(&choice)
 
+	if choice == 1 || choice == 2 {
+		if !c.CanAddItem() {
+			fmt.Println("Inventaire plein ! (10 objets maximum)")
+			return
+		}
+	}
+
 	switch choice {
 	case 1:
 		c.Inventory["Potion de vie"]++

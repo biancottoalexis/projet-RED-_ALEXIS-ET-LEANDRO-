@@ -15,7 +15,8 @@ func main() {
 		fmt.Println("1. Afficher les informations du personnage")
 		fmt.Println("2. Accéder à l'inventaire")
 		fmt.Println("3. Marchand")
-		fmt.Println("4. Quitter")
+		fmt.Println("4. Forgeron")
+		fmt.Println("5. Quitter")
 		fmt.Print("Ton choix : ")
 
 		var choice int
@@ -29,6 +30,8 @@ func main() {
 		case 3:
 			c.OpenMerchant()
 		case 4:
+			c.OpenForgeron()
+		case 5:
 			fmt.Println("À bientôt !")
 			return
 		default:

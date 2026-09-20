@@ -10,9 +10,10 @@ type Character struct {
 	CurrentHP int
 	Inventory map[string]int
 	Skill     []string
+	Gold      int
 }
 
-func InitCharacter(name, class string, level, maxHP, currentHP int, inventory map[string]int) Character {
+func InitCharacter(name, class string, level, maxHP, currentHP int, inventory map[string]int, gold int) Character {
 	return Character{
 		Name:      name,
 		Class:     class,
@@ -21,6 +22,7 @@ func InitCharacter(name, class string, level, maxHP, currentHP int, inventory ma
 		CurrentHP: currentHP,
 		Inventory: inventory,
 		Skill:     []string{"Coup de poing"},
+		Gold:      gold,
 	}
 }
 
@@ -30,4 +32,5 @@ func (c *Character) DisplayInfo() {
 	fmt.Printf("\t Classe   : %s\n", c.Class)
 	fmt.Printf("\t PV       : %d\n", c.CurrentHP)
 	fmt.Printf("\t PV max   : %d\n", c.MaxHP)
+	fmt.Printf("\t Or       : %d\n", c.Gold)
 }

@@ -69,5 +69,5 @@ func CharacterCreation() Character {
 
 	currentHP := maxHP / 2
 
-	return InitCharacter(name, class, 1, maxHP, currentHP, map[string]int{})
+	return InitCharacter(name, class, 1, maxHP, currentHP, map[string]int{}, 100)
 }

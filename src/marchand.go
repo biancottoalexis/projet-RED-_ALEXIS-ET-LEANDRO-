@@ -5,6 +5,7 @@ import "fmt"
 func (c *Character) OpenMerchant() {
 	fmt.Println("=== MARCHAND ===")
 	fmt.Println("1. Potion de vie (gratuit)")
+	fmt.Println("2. Potion de poison (gratuit)")
 	fmt.Println("0. Quitter le marchand")
 	fmt.Print("Ton choix : ")
 
@@ -15,6 +16,9 @@ func (c *Character) OpenMerchant() {
 	case 1:
 		c.Inventory["Potion de vie"]++
 		fmt.Println("Tu as acheté : Potion de vie")
+	case 2:
+		c.Inventory["Potion de poison"]++
+		fmt.Println("Tu as acheté : Potion de poison")
 	case 0:
 		return
 	default:

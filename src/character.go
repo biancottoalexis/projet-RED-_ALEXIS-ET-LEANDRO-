@@ -20,6 +20,7 @@ func InitCharacter(name, class string, level, maxHP, currentHP int, inventory ma
 		MaxHP:     maxHP,
 		CurrentHP: currentHP,
 		Inventory: inventory,
+		Skill:     []string{"Coup de poing"},
 	}
 }
 

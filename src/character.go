@@ -9,6 +9,7 @@ type Character struct {
 	MaxHP     int
 	CurrentHP int
 	Inventory map[string]int
+	Skill     []string
 }
 
 func InitCharacter(name, class string, level, maxHP, currentHP int, inventory map[string]int) Character {

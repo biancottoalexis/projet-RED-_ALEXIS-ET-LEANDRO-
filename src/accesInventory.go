@@ -2,8 +2,8 @@ package projetred
 
 import "fmt"
 
-func accessInventory(character Character) {
-	if len(character.Inventory) == 0 {
+func (c *Character) AccessInventory() {
+	if len(c.Inventory) == 0 {
 		fmt.Println("Ton inventaire est vide")
 		return
 	}
@@ -11,8 +11,7 @@ func accessInventory(character Character) {
 	fmt.Println("=== INVENTAIRE ===")
 
 	i := 1
-
-	for item, quantity := range character.Inventory {
+	for item, quantity := range c.Inventory {
 		fmt.Printf("%d. %s x%d\n", i, item, quantity)
 		i++
 	}

@@ -30,8 +30,3 @@ Incarnez un aventurier dans les Terres Ombreuses : choisissez parmi 6 classes, g
 ```bash
 git clone https://github.com/biancottoalexis/projet-red-_alexis-et-leandro-.git
 cd projet-red-_alexis-et-leandro-
-
-## Lancement
-
-```bash
-go run .

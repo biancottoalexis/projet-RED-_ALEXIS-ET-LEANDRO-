@@ -4,7 +4,7 @@ import "fmt"
 
 func (c *Character) buyItem(name string, price int) {
 	if !c.CanAddItem() {
-		fmt.Println("Inventaire plein ! (10 objets maximum)")
+		fmt.Println("Inventaire plein ! (", c.InventoryLimit, "objets maximum)")
 		return
 	}
 	if c.Gold < price {
@@ -26,6 +26,7 @@ func (c *Character) OpenMerchant() {
 	fmt.Println("5. Peau de Troll - 7 PO")
 	fmt.Println("6. Cuir de Sanglier - 3 PO")
 	fmt.Println("7. Plume de Corbeau - 1 PO")
+	fmt.Println("8. Augmentation d'inventaire - 30 PO")
 	fmt.Println("0. Quitter le marchand")
 	fmt.Print("Ton choix : ")
 
@@ -52,6 +53,13 @@ func (c *Character) OpenMerchant() {
 		c.buyItem("Cuir de Sanglier", 3)
 	case 7:
 		c.buyItem("Plume de Corbeau", 1)
+	case 8:
+		if c.Gold < 30 {
+			fmt.Println("Pas assez d'or pour cette amélioration")
+			return
+		}
+		c.Gold -= 30
+		c.UpgradeInventorySlot()
 	case 0:
 		return
 	default:

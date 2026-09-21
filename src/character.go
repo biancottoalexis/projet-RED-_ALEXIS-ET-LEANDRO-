@@ -33,10 +33,10 @@ func InitCharacter(name, class string, level, maxHP, currentHP int, inventory ma
 }
 
 func (c *Character) DisplayInfo() {
-	fmt.Println("=== Fiche du personnage ===")
+	fmt.Println("\033[1;33m=== Fiche du personnage ===\033[0m")
 	fmt.Printf("\t Nom      : %s\n", c.Name)
 	fmt.Printf("\t Classe   : %s\n", c.Class)
 	fmt.Printf("\t PV       : %d\n", c.CurrentHP)
 	fmt.Printf("\t PV max   : %d\n", c.MaxHP)
-	fmt.Printf("\t Or       : %d\n", c.Gold)
+	fmt.Printf("\033[33m\t Or       : %d\033[0m\n", c.Gold)
 }

@@ -24,6 +24,6 @@ func (m *Monster) GoblinPattern(target *Character, turn int) {
 		damage = m.Attack * 2
 	}
 	target.CurrentHP -= damage
-	fmt.Printf("%s inflige à %s %d de dégâts\n", m.Name, target.Name, damage)
+	fmt.Printf("\033[31m%s inflige à %s %d de dégâts\033[0m\n", m.Name, target.Name, damage)
 	fmt.Printf("PV : %d/%d\n", target.CurrentHP, target.MaxHP)
 }

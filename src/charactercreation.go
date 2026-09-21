@@ -9,7 +9,7 @@ func CharacterCreation() Character {
 	var name string
 
 	for {
-		fmt.Print("Entre ton nom (lettres uniquement) : ")
+		fmt.Print("\033[36mEntre ton nom (lettres uniquement) : \033[0m")
 		fmt.Scanln(&name)
 
 		valid := true
@@ -23,18 +23,20 @@ func CharacterCreation() Character {
 		if valid && name != "" {
 			break
 		}
-		fmt.Println("Nom invalide, réessaie.")
+		fmt.Println("\033[31mNom invalide, réessaie.\033[0m")
 	}
 
 	name = strings.ToUpper(name[:1]) + strings.ToLower(name[1:])
 
-	fmt.Println("Choisis ta classe :")
-	fmt.Println("1. Humain")
-	fmt.Println("2. Elfe")
-	fmt.Println("3. Nain")
-	fmt.Println("4. Orc")
-	fmt.Println("5. Sorcier")
-	fmt.Println("6. Barbare")
+	fmt.Println()
+	fmt.Println("\033[1;33m=== Choisis ta classe ===\033[0m")
+	fmt.Println("\033[36m1.\033[0m Humain")
+	fmt.Println("\033[36m2.\033[0m Elfe")
+	fmt.Println("\033[36m3.\033[0m Nain")
+	fmt.Println("\033[36m4.\033[0m Orc")
+	fmt.Println("\033[36m5.\033[0m Sorcier")
+	fmt.Println("\033[36m6.\033[0m Barbare")
+	fmt.Print("\033[36mTon choix : \033[0m")
 
 	var classChoice int
 	fmt.Scanln(&classChoice)

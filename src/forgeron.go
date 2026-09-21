@@ -4,16 +4,16 @@ import "fmt"
 
 func (c *Character) craftItem(name string, cost int, materials map[string]int) {
 	if !c.CanAddItem() {
-		fmt.Println("Inventaire plein ! (10 objets maximum)")
+		fmt.Println("\033[31mInventaire plein ! (", c.InventoryLimit, "objets maximum)\033[0m")
 		return
 	}
 	if c.Gold < cost {
-		fmt.Println("Pas assez d'or pour fabriquer", name)
+		fmt.Println("\033[31mPas assez d'or pour fabriquer\033[0m", name)
 		return
 	}
 	for material, qty := range materials {
 		if c.Inventory[material] < qty {
-			fmt.Println("Il te manque des matériaux pour fabriquer", name)
+			fmt.Println("\033[31mIl te manque des matériaux pour fabriquer\033[0m", name)
 			return
 		}
 	}
@@ -23,15 +23,15 @@ func (c *Character) craftItem(name string, cost int, materials map[string]int) {
 		c.Inventory[material] -= qty
 	}
 	c.Inventory[name]++
-	fmt.Println("Tu as fabriqué :", name)
+	fmt.Println("\033[32mTu as fabriqué :\033[0m", name)
 }
 
 func (c *Character) OpenForgeron() {
-	fmt.Println("=== FORGERON ===")
-	fmt.Println("1. Chapeau de l'aventurier (5 PO + 1 Plume de Corbeau + 1 Cuir de Sanglier)")
-	fmt.Println("2. Tunique de l'aventurier (5 PO + 2 Fourrures de Loup + 1 Peau de Troll)")
-	fmt.Println("3. Bottes de l'aventurier (5 PO + 1 Fourrure de Loup + 1 Cuir de Sanglier)")
-	fmt.Println("0. Quitter le forgeron")
+	fmt.Println("\033[1;33m=== FORGERON ===\033[0m")
+	fmt.Println("\033[36m1.\033[0m Chapeau de l'aventurier (5 PO + 1 Plume de Corbeau + 1 Cuir de Sanglier)")
+	fmt.Println("\033[36m2.\033[0m Tunique de l'aventurier (5 PO + 2 Fourrures de Loup + 1 Peau de Troll)")
+	fmt.Println("\033[36m3.\033[0m Bottes de l'aventurier (5 PO + 1 Fourrure de Loup + 1 Cuir de Sanglier)")
+	fmt.Println("\033[36m0.\033[0m Quitter le forgeron")
 	fmt.Print("Ton choix : ")
 
 	var choice int
@@ -47,6 +47,6 @@ func (c *Character) OpenForgeron() {
 	case 0:
 		return
 	default:
-		fmt.Println("Choix invalide")
+		fmt.Println("\033[31mChoix invalide\033[0m")
 	}
 }

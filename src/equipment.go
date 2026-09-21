@@ -10,7 +10,7 @@ type Equipment struct {
 
 func (c *Character) EquipHead(name string) {
 	if c.Inventory[name] <= 0 {
-		fmt.Println("Tu n'as pas cet objet dans ton inventaire")
+		fmt.Println("\033[31mTu n'as pas cet objet dans ton inventaire\033[0m")
 		return
 	}
 	c.Inventory[name]--
@@ -22,12 +22,12 @@ func (c *Character) EquipHead(name string) {
 
 	c.Equipment.Head = name
 	c.MaxHP += 10
-	fmt.Println("Tu équipes :", name)
+	fmt.Println("\033[32mTu équipes :\033[0m", name)
 }
 
 func (c *Character) EquipChest(name string) {
 	if c.Inventory[name] <= 0 {
-		fmt.Println("Tu n'as pas cet objet dans ton inventaire")
+		fmt.Println("\033[31mTu n'as pas cet objet dans ton inventaire\033[0m")
 		return
 	}
 	c.Inventory[name]--
@@ -39,12 +39,12 @@ func (c *Character) EquipChest(name string) {
 
 	c.Equipment.Chest = name
 	c.MaxHP += 25
-	fmt.Println("Tu équipes :", name)
+	fmt.Println("\033[32mTu équipes :\033[0m", name)
 }
 
 func (c *Character) EquipFeet(name string) {
 	if c.Inventory[name] <= 0 {
-		fmt.Println("Tu n'as pas cet objet dans ton inventaire")
+		fmt.Println("\033[31mTu n'as pas cet objet dans ton inventaire\033[0m")
 		return
 	}
 	c.Inventory[name]--
@@ -56,5 +56,5 @@ func (c *Character) EquipFeet(name string) {
 
 	c.Equipment.Feet = name
 	c.MaxHP += 15
-	fmt.Println("Tu équipes :", name)
+	fmt.Println("\033[32mTu équipes :\033[0m", name)
 }

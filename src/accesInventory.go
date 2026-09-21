@@ -4,11 +4,11 @@ import "fmt"
 
 func (c *Character) AccessInventory() {
 	if len(c.Inventory) == 0 {
-		fmt.Println("Ton inventaire est vide")
+		fmt.Println("\033[33mTon inventaire est vide\033[0m")
 		return
 	}
 
-	fmt.Println("=== INVENTAIRE ===")
+	fmt.Println("\033[1;33m=== INVENTAIRE ===\033[0m")
 
 	i := 1
 	var items []string
@@ -16,11 +16,11 @@ func (c *Character) AccessInventory() {
 		if quantity <= 0 {
 			continue
 		}
-		fmt.Printf("%d. %s x%d\n", i, item, quantity)
+		fmt.Printf("\033[36m%d.\033[0m %s x%d\n", i, item, quantity)
 		items = append(items, item)
 		i++
 	}
-	fmt.Println("0. Fermer l'inventaire")
+	fmt.Println("\033[36m0.\033[0m Fermer l'inventaire")
 	fmt.Print("Ton choix : ")
 
 	var choice int
@@ -47,6 +47,6 @@ func (c *Character) UseItem(name string) {
 	case "Bottes de l'aventurier":
 		c.EquipFeet(name)
 	default:
-		fmt.Println("Cet objet ne peut pas être utilisé")
+		fmt.Println("\033[31mCet objet ne peut pas être utilisé\033[0m")
 	}
 }

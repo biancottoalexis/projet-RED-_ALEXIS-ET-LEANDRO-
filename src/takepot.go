@@ -4,7 +4,7 @@ import "fmt"
 
 func (c *Character) TakePot() {
 	if c.Inventory["Potion de vie"] <= 0 {
-		fmt.Println("Tu n'as pas de Potion de vie dans ton inventaire")
+		fmt.Println("\033[31mTu n'as pas de Potion de vie dans ton inventaire\033[0m")
 		return
 	}
 
@@ -14,5 +14,5 @@ func (c *Character) TakePot() {
 		c.CurrentHP = c.MaxHP
 	}
 
-	fmt.Printf("Tu utilises une Potion de vie. PV : %d/%d\n", c.CurrentHP, c.MaxHP)
+	fmt.Printf("\033[32mTu utilises une Potion de vie. PV : %d/%d\033[0m\n", c.CurrentHP, c.MaxHP)
 }

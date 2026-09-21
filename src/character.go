@@ -11,6 +11,7 @@ type Character struct {
 	Inventory map[string]int
 	Skill     []string
 	Gold      int
+	Equipment Equipment
 }
 
 func InitCharacter(name, class string, level, maxHP, currentHP int, inventory map[string]int, gold int) Character {
@@ -23,6 +24,7 @@ func InitCharacter(name, class string, level, maxHP, currentHP int, inventory ma
 		Inventory: inventory,
 		Skill:     []string{"Coup de poing"},
 		Gold:      gold,
+		Equipment: Equipment{},
 	}
 }
 

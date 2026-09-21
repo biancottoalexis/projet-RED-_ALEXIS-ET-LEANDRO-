@@ -1,29 +1,35 @@
 package projetred
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 type Monster struct {
-	Name      string
-	MaxHP     int
-	CurrentHP int
-	Attack    int
+	Name       string
+	MaxHP      int
+	CurrentHP  int
+	Attack     int
+	Initiative int
 }
 
 func InitGoblin() Monster {
 	return Monster{
-		Name:      "Gobelin d'entrainement",
-		MaxHP:     40,
-		CurrentHP: 40,
-		Attack:    5,
+		Name:       "Gobelin",
+		MaxHP:      40,
+		CurrentHP:  40,
+		Attack:     5,
+		Initiative: 5 + rand.Intn(5),
 	}
 }
 
 func (m *Monster) GoblinPattern(target *Character, turn int) {
 	damage := m.Attack
 	if turn%3 == 0 {
-		damage = m.Attack * 2
+		damage *= 2
+		fmt.Printf("\033[1;31m%s entre en rage et double son attaque !\033[0m\n", m.Name)
 	}
 	target.CurrentHP -= damage
-	fmt.Printf("\033[31m%s inflige à %s %d de dégâts\033[0m\n", m.Name, target.Name, damage)
-	fmt.Printf("PV : %d/%d\n", target.CurrentHP, target.MaxHP)
+	fmt.Printf("\033[31m%s attaque %s et inflige %d dégâts\033[0m\n", m.Name, target.Name, damage)
+	fmt.Printf("PV de %s : %d/%d\n", target.Name, target.CurrentHP, target.MaxHP)
 }

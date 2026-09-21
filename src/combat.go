@@ -35,22 +35,38 @@ func (c *Character) TrainingFight() {
 	monster := InitGoblin()
 	turn := 1
 
+	if c.Initiative >= monster.Initiative {
+		fmt.Println("\033[36mTon instinct te pousse à agir en premier !\033[0m")
+	} else {
+		fmt.Println("\033[31mLe", monster.Name, "est plus rapide que toi et attaque en premier !\033[0m")
+	}
+
 	for {
 		fmt.Println()
 		fmt.Println("\033[1;33m=== Tour", turn, "===\033[0m")
 
-		c.CharacterTurn(&monster)
-
-		if monster.CurrentHP <= 0 {
-			fmt.Println("\033[32mTu as vaincu", monster.Name, "!\033[0m")
-			break
-		}
-
-		monster.GoblinPattern(c, turn)
-
-		if c.IsDead() {
-			fmt.Println("\033[31mLe combat est terminé.\033[0m")
-			break
+		if c.Initiative >= monster.Initiative {
+			c.CharacterTurn(&monster)
+			if monster.CurrentHP <= 0 {
+				fmt.Println("\033[32mTu as vaincu", monster.Name, "!\033[0m")
+				break
+			}
+			monster.GoblinPattern(c, turn)
+			if c.IsDead() {
+				fmt.Println("\033[31mLe combat est terminé.\033[0m")
+				break
+			}
+		} else {
+			monster.GoblinPattern(c, turn)
+			if c.IsDead() {
+				fmt.Println("\033[31mLe combat est terminé.\033[0m")
+				break
+			}
+			c.CharacterTurn(&monster)
+			if monster.CurrentHP <= 0 {
+				fmt.Println("\033[32mTu as vaincu", monster.Name, "!\033[0m")
+				break
+			}
 		}
 
 		turn++

@@ -2,10 +2,13 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	"time"
 
 	projetred "projetred/src"
 )
+
+const termWidth = 130
 
 func typeWriter(text string) {
 	for _, ch := range text {
@@ -15,33 +18,62 @@ func typeWriter(text string) {
 	fmt.Println()
 }
 
+func printCentered(text string) {
+	lines := strings.Split(text, "\n")
+	for _, line := range lines {
+		padding := (termWidth - len([]rune(line))) / 2
+		if padding < 0 {
+			padding = 0
+		}
+		fmt.Println(strings.Repeat(" ", padding) + line)
+	}
+}
+
+func typeWriterCentered(text string) {
+	padding := (termWidth - len([]rune(text))) / 2
+	if padding < 0 {
+		padding = 0
+	}
+	fmt.Print(strings.Repeat(" ", padding))
+	typeWriter(text)
+}
+
 func printBanner() {
-	fmt.Println("\033[33m════════════════════════════════════════════\033[0m")
+	fmt.Print("\033[33m")
+	printCentered(`════════════════════════════════════════════`)
+	fmt.Print("\033[0m")
 	fmt.Println()
+
 	fmt.Print("\033[1;31m")
-	fmt.Println(` ████ █   █  ███  ████   ███  █   █
+	printCentered(` ████ █   █  ███  ████   ███  █   █
 █     █   █ █   █ █   █ █   █ █   █
  ███  █████ █████ █   █ █   █ █ █ █
     █ █   █ █   █ █   █ █   █ ██ ██
 ████  █   █ █   █ ████   ███  █   █`)
 	fmt.Print("\033[0m")
 	fmt.Println()
+
 	fmt.Print("\033[1;33m")
-	fmt.Println(` ███  █████   ████  █████  ████ █████ █████ █   █ █   █
+	printCentered(` ███  █████   ████  █████  ████ █████ █████ █   █ █   █
 █   █ █       █   █ █     █       █     █   ██  █  █ █ 
 █   █ ███     █   █ ███    ███    █     █   █ █ █   █  
 █   █ █       █   █ █         █   █     █   █  ██   █  
  ███  █       ████  █████ ████    █   █████ █   █   █  `)
 	fmt.Print("\033[0m")
 	fmt.Println()
+
 	fmt.Print("\033[3;36m")
-	typeWriter("        ~ Une quête au cœur des Terres Ombreuses ~")
+	typeWriterCentered("~ Une quête au cœur des Terres Ombreuses ~")
 	fmt.Print("\033[0m")
 	fmt.Println()
-	fmt.Println("\033[33m════════════════════════════════════════════\033[0m")
+
+	fmt.Print("\033[33m")
+	printCentered(`════════════════════════════════════════════`)
+	fmt.Print("\033[0m")
 	fmt.Println()
+
 	fmt.Print("\033[3;37m")
-	typeWriter("Une flamme pour te guider, une ombre pour te perdre...")
+	typeWriterCentered("Une flamme pour te guider, une ombre pour te perdre...")
 	fmt.Print("\033[0m")
 	fmt.Println()
 }

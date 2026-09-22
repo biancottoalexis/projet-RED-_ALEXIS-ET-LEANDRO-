@@ -11,6 +11,7 @@ type Monster struct {
 	CurrentHP  int
 	Attack     int
 	Initiative int
+	XPReward   int
 }
 
 func InitGoblin() Monster {
@@ -20,6 +21,7 @@ func InitGoblin() Monster {
 		CurrentHP:  40,
 		Attack:     5,
 		Initiative: 5 + rand.Intn(5),
+		XPReward:   20,
 	}
 }
 

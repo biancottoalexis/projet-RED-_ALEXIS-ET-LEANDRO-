@@ -54,7 +54,6 @@ func printCredits() {
 	fmt.Println("Aix Ynov Campus - Ymmersion")
 	fmt.Println()
 }
-
 func playGame() {
 	c := projetred.CharacterCreation()
 

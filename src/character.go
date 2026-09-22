@@ -20,22 +20,22 @@ type Character struct {
 }
 
 func InitCharacter(name, class string, level, maxHP, currentHP int, inventory map[string]int, gold int) Character {
-	return Character{
-		Name:              name,
-		Class:             class,
-		Level:             level,
-		MaxHP:             maxHP,
-		CurrentHP:         currentHP,
-		Inventory:         inventory,
-		Skill:             []string{"Coup de poing"},
-		Gold:              gold,
-		Equipment:         Equipment{},
-		InventoryLimit:    10,
-		InventoryUpgrades: 0,
-		Initiative:        0,
-		XP:                0,
-		XPMax:             50,
-	}
+	var c Character
+	c.Name = name
+	c.Class = class
+	c.Level = level
+	c.MaxHP = maxHP
+	c.CurrentHP = currentHP
+	c.Inventory = inventory
+	c.Skill = []string{"Coup de poing"}
+	c.Gold = gold
+	c.Equipment = Equipment{}
+	c.InventoryLimit = 10
+	c.InventoryUpgrades = 0
+	c.Initiative = 0
+	c.XP = 0
+	c.XPMax = 50
+	return c
 }
 
 func (c *Character) DisplayInfo() {

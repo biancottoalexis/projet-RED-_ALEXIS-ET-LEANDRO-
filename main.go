@@ -13,7 +13,7 @@ import (
 	projetred "projetred/src"
 )
 
-const termWidth = 130
+const termWidth = 150
 
 var musicCtrl *beep.Ctrl
 var musicPlaying bool
@@ -101,12 +101,12 @@ func typeWriterCentered(text string) {
 }
 
 func printBanner() {
-	fmt.Print("\033[33m")
+	fmt.Print("\033[35m")
 	printCentered(`════════════════════════════════════════════`)
 	fmt.Print("\033[0m")
 	fmt.Println()
 
-	fmt.Print("\033[1;31m")
+	fmt.Print("\033[1;35m")
 	printCentered(` ████ █   █  ███  ████   ███  █   █
 █     █   █ █   █ █   █ █   █ █   █
  ███  █████ █████ █   █ █   █ █ █ █
@@ -115,7 +115,7 @@ func printBanner() {
 	fmt.Print("\033[0m")
 	fmt.Println()
 
-	fmt.Print("\033[1;33m")
+	fmt.Print("\033[1;37m")
 	printCentered(` ███  █████   ████  █████  ████ █████ █████ █   █ █   █
 █   █ █       █   █ █     █       █     █   ██  █  █ █ 
 █   █ ███     █   █ ███    ███    █     █   █ █ █   █  
@@ -126,12 +126,12 @@ func printBanner() {
 
 	drawMusicStatus()
 
-	fmt.Print("\033[3;36m")
+	fmt.Print("\033[3;35m")
 	typeWriterCentered("~ Une quête au cœur des Terres Ombreuses ~")
 	fmt.Print("\033[0m")
 	fmt.Println()
 
-	fmt.Print("\033[33m")
+	fmt.Print("\033[35m")
 	printCentered(`════════════════════════════════════════════`)
 	fmt.Print("\033[0m")
 	fmt.Println()

@@ -181,7 +181,8 @@ func playGame() {
 		fmt.Println("\033[35m3.\033[0m Marchand")
 		fmt.Println("\033[35m4.\033[0m Forgeron")
 		fmt.Println("\033[35m5.\033[0m Entrainement")
-		fmt.Println("\033[35m6.\033[0m Quitter")
+		fmt.Println("\033[35m6.\033[0m Histoire")
+		fmt.Println("\033[35m7.\033[0m Quitter")
 		fmt.Println("\033[35m0.\033[0m Musique on/off")
 		fmt.Print("Ton choix : ")
 
@@ -202,6 +203,8 @@ func playGame() {
 		case 5:
 			c.TrainingFight()
 		case 6:
+			c.StartStory()
+		case 7:
 			fmt.Println("\033[33mÀ bientôt !\033[0m")
 			return
 		default:

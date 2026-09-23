@@ -26,6 +26,7 @@ func (c *Character) CharacterTurn(monster *Monster) {
 
 func (c *Character) ChooseSkill(monster *Monster) {
 	fmt.Println("\033[1;33m=== Choisis ta compétence ===\033[0m")
+	fmt.Printf("\033[34mMana : %d/%d\033[0m\n", c.Mana, c.ManaMax)
 	for i, skill := range c.Skill {
 		fmt.Printf("\033[36m%d.\033[0m %s\n", i+1, skill)
 	}
@@ -40,16 +41,25 @@ func (c *Character) ChooseSkill(monster *Monster) {
 	}
 
 	skillName := c.Skill[choice-1]
-	var damage int
+	var damage, manaCost int
 
 	switch skillName {
 	case "Coup de poing":
 		damage = 8
+		manaCost = 0
 	case "Boule de Feu":
 		damage = 18
+		manaCost = 10
 	default:
 		damage = 5
+		manaCost = 0
 	}
+
+	if c.Mana < manaCost {
+		fmt.Println("\033[31mPas assez de mana pour utiliser", skillName, "!\033[0m")
+		return
+	}
+	c.Mana -= manaCost
 
 	if rand.Intn(100) < 15 {
 		damage *= 2

@@ -17,6 +17,8 @@ type Character struct {
 	Initiative        int
 	XP                int
 	XPMax             int
+	Mana              int
+	ManaMax           int
 }
 
 func InitCharacter(name, class string, level, maxHP, currentHP int, inventory map[string]int, gold int) Character {
@@ -35,6 +37,8 @@ func InitCharacter(name, class string, level, maxHP, currentHP int, inventory ma
 	c.Initiative = 0
 	c.XP = 0
 	c.XPMax = 50
+	c.Mana = 30
+	c.ManaMax = 30
 	return c
 }
 
@@ -45,6 +49,7 @@ func (c *Character) DisplayInfo() {
 	fmt.Printf("\t Niveau   : %d\n", c.Level)
 	fmt.Printf("\t PV       : %d\n", c.CurrentHP)
 	fmt.Printf("\t PV max   : %d\n", c.MaxHP)
-	fmt.Printf("\033[35m\t XP : %d/%d\033[0m\n", c.XP, c.XPMax)
-	fmt.Printf("\033[33m\t Or : %d\033[0m\n", c.Gold)
+	fmt.Printf("\033[34m\t Mana     : %d/%d\033[0m\n", c.Mana, c.ManaMax)
+	fmt.Printf("\033[35m\t XP       : %d/%d\033[0m\n", c.XP, c.XPMax)
+	fmt.Printf("\033[33m\t Or       : %d\033[0m\n", c.Gold)
 }

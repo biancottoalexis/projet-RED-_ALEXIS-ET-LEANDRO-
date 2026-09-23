@@ -16,11 +16,11 @@ func (c *Character) AccessInventory() {
 		if quantity <= 0 {
 			continue
 		}
-		fmt.Printf("\033[36m%d.\033[0m %s x%d\n", i, item, quantity)
+		fmt.Printf("\033[35m%d.\033[0m %s x%d\n", i, item, quantity)
 		items = append(items, item)
 		i++
 	}
-	fmt.Println("\033[36m0.\033[0m Fermer l'inventaire")
+	fmt.Println("\033[35m0.\033[0m Fermer l'inventaire")
 	fmt.Print("Ton choix : ")
 
 	var choice int

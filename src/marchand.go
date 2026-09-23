@@ -19,15 +19,15 @@ func (c *Character) buyItem(name string, price int) {
 
 func (c *Character) OpenMerchant() {
 	fmt.Println("\033[1;33m=== MARCHAND ===\033[0m")
-	fmt.Println("\033[36m1.\033[0m Potion de vie - 3 PO")
-	fmt.Println("\033[36m2.\033[0m Potion de poison - 6 PO")
-	fmt.Println("\033[36m3.\033[0m Livre de Sort : Boule de Feu - 25 PO")
-	fmt.Println("\033[36m4.\033[0m Fourrure de Loup - 4 PO")
-	fmt.Println("\033[36m5.\033[0m Peau de Troll - 7 PO")
-	fmt.Println("\033[36m6.\033[0m Cuir de Sanglier - 3 PO")
-	fmt.Println("\033[36m7.\033[0m Plume de Corbeau - 1 PO")
-	fmt.Println("\033[36m8.\033[0m Augmentation d'inventaire - 30 PO")
-	fmt.Println("\033[36m0.\033[0m Quitter le marchand")
+	fmt.Println("\033[35m1.\033[0m Potion de vie - 3 PO")
+	fmt.Println("\033[35m2.\033[0m Potion de poison - 6 PO")
+	fmt.Println("\033[35m3.\033[0m Livre de Sort : Boule de Feu - 25 PO")
+	fmt.Println("\033[35m4.\033[0m Fourrure de Loup - 4 PO")
+	fmt.Println("\033[35m5.\033[0m Peau de Troll - 7 PO")
+	fmt.Println("\033[35m6.\033[0m Cuir de Sanglier - 3 PO")
+	fmt.Println("\033[35m7.\033[0m Plume de Corbeau - 1 PO")
+	fmt.Println("\033[35m8.\033[0m Augmentation d'inventaire - 30 PO")
+	fmt.Println("\033[35m0.\033[0m Quitter le marchand")
 	fmt.Print("Ton choix : ")
 
 	var choice int

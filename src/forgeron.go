@@ -28,10 +28,10 @@ func (c *Character) craftItem(name string, cost int, materials map[string]int) {
 
 func (c *Character) OpenForgeron() {
 	fmt.Println("\033[1;33m=== FORGERON ===\033[0m")
-	fmt.Println("\033[36m1.\033[0m Chapeau de l'aventurier (5 PO + 1 Plume de Corbeau + 1 Cuir de Sanglier)")
-	fmt.Println("\033[36m2.\033[0m Tunique de l'aventurier (5 PO + 2 Fourrures de Loup + 1 Peau de Troll)")
-	fmt.Println("\033[36m3.\033[0m Bottes de l'aventurier (5 PO + 1 Fourrure de Loup + 1 Cuir de Sanglier)")
-	fmt.Println("\033[36m0.\033[0m Quitter le forgeron")
+	fmt.Println("\033[35m1.\033[0m Chapeau de l'aventurier (5 PO + 1 Plume de Corbeau + 1 Cuir de Sanglier)")
+	fmt.Println("\033[35m2.\033[0m Tunique de l'aventurier (5 PO + 2 Fourrures de Loup + 1 Peau de Troll)")
+	fmt.Println("\033[35m3.\033[0m Bottes de l'aventurier (5 PO + 1 Fourrure de Loup + 1 Cuir de Sanglier)")
+	fmt.Println("\033[35m0.\033[0m Quitter le forgeron")
 	fmt.Print("Ton choix : ")
 
 	var choice int

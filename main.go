@@ -149,14 +149,9 @@ func printCredits() {
 	fmt.Println("Développé par Alexis & Leandro")
 	fmt.Println("Aix Ynov Campus - Ymmersion")
 	fmt.Println()
-}
-
-func printWhoAreThey() {
-	fmt.Println()
-	fmt.Println("\033[1;33m=== QUI SONT-ILS ? ===\033[0m")
+	fmt.Println("\033[1;33m--- Qui sont-ils ? ---\033[0m")
 	fmt.Println("Les titres de la Partie 2 (Économie) sont des chansons d'\033[1;35mABBA\033[0m")
 	fmt.Println("(ex : Tâche 17 \"Mamma Mia\")")
-	fmt.Println()
 	fmt.Println("Les titres de la Partie 3 (Combat) référencent le réalisateur \033[1;35mSteven Spielberg\033[0m")
 	fmt.Println("(ex : Tâche 21 \"Ready Player One\")")
 	fmt.Println()
@@ -169,13 +164,13 @@ func playGame() {
 		fmt.Println()
 		fmt.Println("\033[1;33m=== MENU ===\033[0m")
 		drawMusicStatus()
-		fmt.Println("\033[36m1.\033[0m Afficher les informations du personnage")
-		fmt.Println("\033[36m2.\033[0m Accéder à l'inventaire")
-		fmt.Println("\033[36m3.\033[0m Marchand")
-		fmt.Println("\033[36m4.\033[0m Forgeron")
-		fmt.Println("\033[36m5.\033[0m Entrainement")
-		fmt.Println("\033[36m6.\033[0m Quitter")
-		fmt.Println("\033[36m0.\033[0m Musique on/off")
+		fmt.Println("\033[35m1.\033[0m Afficher les informations du personnage")
+		fmt.Println("\033[35m2.\033[0m Accéder à l'inventaire")
+		fmt.Println("\033[35m3.\033[0m Marchand")
+		fmt.Println("\033[35m4.\033[0m Forgeron")
+		fmt.Println("\033[35m5.\033[0m Entrainement")
+		fmt.Println("\033[35m6.\033[0m Quitter")
+		fmt.Println("\033[35m0.\033[0m Musique on/off")
 		fmt.Print("Ton choix : ")
 
 		var choice int
@@ -212,11 +207,10 @@ func main() {
 	printBanner()
 
 	for {
-		fmt.Println("\033[36m[1]\033[0m JOUER")
-		fmt.Println("\033[36m[2]\033[0m CRÉDITS")
-		fmt.Println("\033[36m[3]\033[0m QUI SONT-ILS ?")
-		fmt.Println("\033[36m[4]\033[0m QUITTER")
-		fmt.Println("\033[36m[0]\033[0m MUSIQUE ON/OFF")
+		fmt.Println("\033[35m[1]\033[0m JOUER")
+		fmt.Println("\033[35m[2]\033[0m CRÉDITS")
+		fmt.Println("\033[35m[3]\033[0m QUITTER")
+		fmt.Println("\033[35m[0]\033[0m MUSIQUE ON/OFF")
 		fmt.Print("Entre ton choix : ")
 
 		var choice int
@@ -231,8 +225,6 @@ func main() {
 		case 2:
 			printCredits()
 		case 3:
-			printWhoAreThey()
-		case 4:
 			fmt.Println("\033[33mÀ bientôt, aventurier...\033[0m")
 			return
 		default:

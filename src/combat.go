@@ -7,8 +7,8 @@ import (
 
 func (c *Character) CharacterTurn(monster *Monster) {
 	fmt.Println("\033[1;33m=== TON TOUR ===\033[0m")
-	fmt.Println("\033[36m1.\033[0m Attaquer")
-	fmt.Println("\033[36m2.\033[0m Inventaire")
+	fmt.Println("\033[35m1.\033[0m Attaquer")
+	fmt.Println("\033[35m2.\033[0m Inventaire")
 	fmt.Print("Ton choix : ")
 
 	var choice int
@@ -28,7 +28,7 @@ func (c *Character) ChooseSkill(monster *Monster) {
 	fmt.Println("\033[1;33m=== Choisis ta compétence ===\033[0m")
 	fmt.Printf("\033[34mMana : %d/%d\033[0m\n", c.Mana, c.ManaMax)
 	for i, skill := range c.Skill {
-		fmt.Printf("\033[36m%d.\033[0m %s\n", i+1, skill)
+		fmt.Printf("\033[35m%d.\033[0m %s\n", i+1, skill)
 	}
 	fmt.Print("Ton choix : ")
 
@@ -76,7 +76,7 @@ func (c *Character) TrainingFight() {
 	turn := 1
 
 	if c.Initiative >= monster.Initiative {
-		fmt.Println("\033[36mTon instinct te pousse à agir en premier !\033[0m")
+		fmt.Println("\033[35mTon instinct te pousse à agir en premier !\033[0m")
 	} else {
 		fmt.Println("\033[31mLe", monster.Name, "est plus rapide que toi et attaque en premier !\033[0m")
 	}

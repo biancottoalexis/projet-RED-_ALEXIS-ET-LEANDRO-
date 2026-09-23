@@ -18,7 +18,7 @@ Incarnez un aventurier dans les Terres Ombreuses : choisissez parmi 6 classes, g
 
 ## Équipe
 
-- Alexis Biancotto
+- Alexis 
 - Leandro
 
 ## Prérequis

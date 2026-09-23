@@ -151,6 +151,17 @@ func printCredits() {
 	fmt.Println()
 }
 
+func printWhoAreThey() {
+	fmt.Println()
+	fmt.Println("\033[1;33m=== QUI SONT-ILS ? ===\033[0m")
+	fmt.Println("Les titres de la Partie 2 (Économie) sont des chansons d'\033[1;35mABBA\033[0m")
+	fmt.Println("(ex : Tâche 17 \"Mamma Mia\")")
+	fmt.Println()
+	fmt.Println("Les titres de la Partie 3 (Combat) référencent le réalisateur \033[1;35mSteven Spielberg\033[0m")
+	fmt.Println("(ex : Tâche 21 \"Ready Player One\")")
+	fmt.Println()
+}
+
 func playGame() {
 	c := projetred.CharacterCreation()
 
@@ -203,7 +214,8 @@ func main() {
 	for {
 		fmt.Println("\033[36m[1]\033[0m JOUER")
 		fmt.Println("\033[36m[2]\033[0m CRÉDITS")
-		fmt.Println("\033[36m[3]\033[0m QUITTER")
+		fmt.Println("\033[36m[3]\033[0m QUI SONT-ILS ?")
+		fmt.Println("\033[36m[4]\033[0m QUITTER")
 		fmt.Println("\033[36m[0]\033[0m MUSIQUE ON/OFF")
 		fmt.Print("Entre ton choix : ")
 
@@ -219,6 +231,8 @@ func main() {
 		case 2:
 			printCredits()
 		case 3:
+			printWhoAreThey()
+		case 4:
 			fmt.Println("\033[33mÀ bientôt, aventurier...\033[0m")
 			return
 		default:

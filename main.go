@@ -142,6 +142,18 @@ func printBanner() {
 	fmt.Println()
 }
 
+func printrules() {
+	fmt.Print("\033[3;37m")
+	fmt.Println("")
+	typeWriter("SHADOW OF DESTINY")
+	typeWriter("Règles du jeu : Crée ton personnage (nom, classe : Humain/Elfe/Nain). Gère ton inventaire (10 objets max) :")
+	typeWriter("potions, sorts, équipements. Achète chez le marchand, fabrique chez le forgeron. Combats au")
+	typeWriter("tour par tour : attaque, sort (coûte du mana) ou potion. Progresse en XP et en niveau. À chaque")
+	typeWriter("étape, un menu numéroté (1, 2, 3...) te fait choisir ton chemin.")
+	fmt.Println("")
+	fmt.Print("\033[0m")
+}
+
 func printCredits() {
 	fmt.Println()
 	fmt.Println("\033[1;33m=== CRÉDITS ===\033[0m")
@@ -169,8 +181,7 @@ func playGame() {
 		fmt.Println("\033[35m3.\033[0m Marchand")
 		fmt.Println("\033[35m4.\033[0m Forgeron")
 		fmt.Println("\033[35m5.\033[0m Entrainement")
-		fmt.Println("\033[35m6.\033[0m Histoire")
-		fmt.Println("\033[35m7.\033[0m Quitter")
+		fmt.Println("\033[35m6.\033[0m Quitter")
 		fmt.Println("\033[35m0.\033[0m Musique on/off")
 		fmt.Print("Ton choix : ")
 
@@ -191,8 +202,6 @@ func playGame() {
 		case 5:
 			c.TrainingFight()
 		case 6:
-			c.StartStory()
-		case 7:
 			fmt.Println("\033[33mÀ bientôt !\033[0m")
 			return
 		default:
@@ -211,8 +220,9 @@ func main() {
 
 	for {
 		fmt.Println("\033[35m[1]\033[0m JOUER")
-		fmt.Println("\033[35m[2]\033[0m CRÉDITS")
-		fmt.Println("\033[35m[3]\033[0m QUITTER")
+		fmt.Println("\033[35m[2]\033[0m RÉGLE DU JEU")
+		fmt.Println("\033[35m[3]\033[0m CRÉDITS")
+		fmt.Println("\033[35m[4]\033[0m QUITTER")
 		fmt.Println("\033[35m[0]\033[0m MUSIQUE ON/OFF")
 		fmt.Print("Entre ton choix : ")
 
@@ -226,8 +236,10 @@ func main() {
 			playGame()
 			return
 		case 2:
-			printCredits()
+			printrules()
 		case 3:
+			printCredits()
+		case 4:
 			fmt.Println("\033[33mÀ bientôt, aventurier...\033[0m")
 			return
 		default:

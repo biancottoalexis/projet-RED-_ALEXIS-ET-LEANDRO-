@@ -105,6 +105,38 @@ func (c *Character) Chapter3() {
 		fmt.Println("\033[35mTu restes silencieux et poursuis ta route.\033[0m")
 	}
 
+	c.Chapter4()
+}
+
+func (c *Character) Chapter4() {
+	fmt.Println()
+	fmt.Println("\033[1;35m=== CHAPITRE 4 : Le Pacte du Passeur ===\033[0m")
+	fmt.Print("\033[3;37m")
+	storyTypeWriter("Le Passeur réapparaît. Il t'avoue une vérité troublante :")
+	storyTypeWriter("c'est lui qui a brisé ton destin en deux, \"pour te sauver\".")
+	storyTypeWriter("Il te propose un pacte : une part de tes souvenirs, contre de la force.")
+	fmt.Print("\033[0m")
+
+	fmt.Println("\033[35m1.\033[0m Accepter le pacte")
+	fmt.Println("\033[35m2.\033[0m Refuser")
+	fmt.Print("Ton choix : ")
+
+	var choice int
+	fmt.Scanln(&choice)
+
+	pactAccepted := false
+
+	switch choice {
+	case 1:
+		pactAccepted = true
+		c.MaxHP += 20
+		c.CurrentHP += 20
+		fmt.Println("\033[35mUn frisson glacé te parcourt. Tu sens une force nouvelle en toi. (+20 PV max)\033[0m")
+	default:
+		fmt.Println("\033[35mTu refuses. Le Passeur hoche la tête, presque déçu.\033[0m")
+	}
+
 	fmt.Println()
 	fmt.Println("\033[1;35m(La suite de l'histoire arrive bientôt...)\033[0m")
+	_ = pactAccepted
 }

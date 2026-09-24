@@ -25,6 +25,28 @@ func InitGoblin() Monster {
 	}
 }
 
+func InitGuardian() Monster {
+	return Monster{
+		Name:       "Gardien des Marais",
+		MaxHP:      30,
+		CurrentHP:  30,
+		Attack:     6,
+		Initiative: 4 + rand.Intn(5),
+		XPReward:   15,
+	}
+}
+
+func InitShadow() Monster {
+	return Monster{
+		Name:       "Ton Ombre",
+		MaxHP:      60,
+		CurrentHP:  60,
+		Attack:     10,
+		Initiative: 6 + rand.Intn(6),
+		XPReward:   50,
+	}
+}
+
 func (m *Monster) GoblinPattern(target *Character, turn int) {
 	damage := m.Attack
 	if turn%3 == 0 {

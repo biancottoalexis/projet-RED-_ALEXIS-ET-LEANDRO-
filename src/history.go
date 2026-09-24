@@ -136,7 +136,135 @@ func (c *Character) Chapter4() {
 		fmt.Println("\033[35mTu refuses. Le Passeur hoche la tête, presque déçu.\033[0m")
 	}
 
+	c.Chapter5(pactAccepted)
+}
+
+func (c *Character) Chapter5(pactAccepted bool) {
 	fmt.Println()
-	fmt.Println("\033[1;35m(La suite de l'histoire arrive bientôt...)\033[0m")
-	_ = pactAccepted
+	fmt.Println("\033[1;35m=== CHAPITRE 5 : Les Marais Maudits ===\033[0m")
+	fmt.Print("\033[3;37m")
+	storyTypeWriter("Un gardien de brume bloque l'unique passage vers le seuil final.")
+	fmt.Print("\033[0m")
+
+	fmt.Println("\033[35m1.\033[0m L'affronter")
+	fmt.Println("\033[35m2.\033[0m Le contourner en silence")
+	fmt.Print("Ton choix : ")
+
+	var choice int
+	fmt.Scanln(&choice)
+
+	if choice == 1 {
+		guardian := InitGuardian()
+		turn := 1
+		for {
+			fmt.Println()
+			fmt.Println("\033[1;35m=== Tour", turn, "===\033[0m")
+			c.CharacterTurn(&guardian)
+			if guardian.CurrentHP <= 0 {
+				fmt.Println("\033[32mTu as vaincu le", guardian.Name, "!\033[0m")
+				c.GainXP(guardian.XPReward)
+				break
+			}
+			guardian.GoblinPattern(c, turn)
+			if c.IsDead() {
+				break
+			}
+			turn++
+		}
+	} else {
+		fmt.Println("\033[35mTu te faufiles dans la brume, invisible.\033[0m")
+	}
+
+	c.Chapter6(pactAccepted)
+}
+
+func (c *Character) Chapter6(pactAccepted bool) {
+	fmt.Println()
+	fmt.Println("\033[1;35m=== CHAPITRE 6 : Le Seuil du Destin ===\033[0m")
+	fmt.Print("\033[3;37m")
+	storyTypeWriter("Face à toi, une silhouette qui a exactement ta voix.")
+	storyTypeWriter("C'est elle. C'est toi.")
+	fmt.Print("\033[0m")
+
+	fmt.Println("\033[35m1.\033[0m Y aller avec confiance")
+	fmt.Println("\033[35m2.\033[0m Y aller avec prudence")
+	fmt.Print("Ton choix : ")
+
+	var choice int
+	fmt.Scanln(&choice)
+
+	switch choice {
+	case 1:
+		c.Initiative += 3
+		fmt.Println("\033[35mTa confiance t'aiguise les sens. (+3 Initiative)\033[0m")
+	default:
+		c.CurrentHP = c.MaxHP
+		fmt.Println("\033[35mTu inspires profondément et soignes tes blessures. (PV restaurés)\033[0m")
+	}
+
+	c.ShadowFight(pactAccepted)
+}
+
+func (c *Character) ShadowFight(pactAccepted bool) {
+	fmt.Println()
+	fmt.Println("\033[1;35m=== COMBAT FINAL : Ton Ombre ===\033[0m")
+
+	shadow := InitShadow()
+	turn := 1
+
+	if c.Initiative >= shadow.Initiative {
+		fmt.Println("\033[35mTu frappes en premier.\033[0m")
+	} else {
+		fmt.Println("\033[35mTon Ombre est plus rapide que toi et attaque en premier !\033[0m")
+	}
+
+	for {
+		fmt.Println()
+		fmt.Println("\033[1;35m=== Tour", turn, "===\033[0m")
+
+		if c.Initiative >= shadow.Initiative {
+			c.CharacterTurn(&shadow)
+			if shadow.CurrentHP <= 0 {
+				break
+			}
+			shadow.GoblinPattern(c, turn)
+			if c.IsDead() {
+				fmt.Println("\033[31mTon Ombre t'a submergé... Le combat est terminé.\033[0m")
+				return
+			}
+		} else {
+			shadow.GoblinPattern(c, turn)
+			if c.IsDead() {
+				fmt.Println("\033[31mTon Ombre t'a submergé... Le combat est terminé.\033[0m")
+				return
+			}
+			c.CharacterTurn(&shadow)
+			if shadow.CurrentHP <= 0 {
+				break
+			}
+		}
+
+		turn++
+	}
+
+	c.GainXP(shadow.XPReward)
+	c.printEnding(pactAccepted)
+}
+
+func (c *Character) printEnding(pactAccepted bool) {
+	fmt.Println()
+	if pactAccepted {
+		fmt.Println("\033[1;35m=== FIN DE LA FUSION ===\033[0m")
+		fmt.Print("\033[3;37m")
+		storyTypeWriter("Tu ne détruis pas ton Ombre. Tu l'absorbes.")
+		storyTypeWriter("Tu as gagné... mais un doute plane sur qui tu es vraiment, désormais.")
+		fmt.Print("\033[0m")
+	} else {
+		fmt.Println("\033[1;35m=== FIN DE LA RÉCONCILIATION ===\033[0m")
+		fmt.Print("\033[3;37m")
+		storyTypeWriter("Tu comprends que ton Ombre n'était pas ton ennemie, juste ta peur.")
+		storyTypeWriter("Le Bracelet du Destin se répare. Une lumière chaude t'enveloppe.")
+		fmt.Print("\033[0m")
+	}
+	fmt.Println()
 }

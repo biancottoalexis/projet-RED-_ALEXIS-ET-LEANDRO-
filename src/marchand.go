@@ -27,6 +27,7 @@ func (c *Character) OpenMerchant() {
 	fmt.Println("\033[35m6.\033[0m Cuir de Sanglier - 3 PO")
 	fmt.Println("\033[35m7.\033[0m Plume de Corbeau - 1 PO")
 	fmt.Println("\033[35m8.\033[0m Augmentation d'inventaire - 30 PO")
+	fmt.Println("\033[35m9.\033[0m Potion de mana - 5 PO")
 	fmt.Println("\033[35m0.\033[0m Quitter le marchand")
 	fmt.Print("Ton choix : ")
 
@@ -60,6 +61,8 @@ func (c *Character) OpenMerchant() {
 		}
 		c.Gold -= 30
 		c.UpgradeInventorySlot()
+	case 9:
+		c.buyItem("Potion de mana", 5)
 	case 0:
 		return
 	default:

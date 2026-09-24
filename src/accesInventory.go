@@ -40,6 +40,8 @@ func (c *Character) UseItem(name string) {
 		c.TakePot()
 	case "Potion de poison":
 		c.PoisonPot()
+	case "Potion de mana":
+		c.TakeManaPot()
 	case "Chapeau de l'aventurier":
 		c.EquipHead(name)
 	case "Tunique de l'aventurier":

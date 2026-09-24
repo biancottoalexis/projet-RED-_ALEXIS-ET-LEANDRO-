@@ -4,21 +4,26 @@ Mini-jeu de rôle en ligne de commande (CLI) développé en Go, dans le cadre du
 
 *Une flamme pour te guider, une ombre pour te perdre...*
 
-Incarnez un aventurier dans les Terres Ombreuses : choisissez parmi 6 classes, gérez votre inventaire et votre or, achetez chez le marchand, fabriquez votre équipement chez le forgeron, et affrontez le Gobelin d'entraînement en combat tour par tour.
+Incarnez un aventurier dans les Terres Ombreuses : choisissez parmi 6 classes, gérez votre inventaire et votre or, achetez chez le marchand, fabriquez votre équipement chez le forgeron, entraînez-vous contre un Gobelin, et vivez une histoire à choix qui vous mène à un combat final contre votre propre Ombre.
 
 ## Fonctionnalités
 
-- Création de personnage (nom validé, choix de classe avec PV différents)
-- Inventaire interactif (potions, sorts, équipement)
+- Création de personnage (nom validé, choix de classe avec PV et Initiative différents)
+- Inventaire interactif (potions de vie/poison/mana, sorts, équipement)
 - Marchand et Forgeron avec système d'économie (or, matériaux, fabrication)
 - Équipement portable avec bonus de PV max
 - Amélioration de la capacité d'inventaire
-- Combat tour par tour contre un monstre, avec coup critique aléatoire ("Toucher du Destin")
-- Interface stylisée (couleurs, écran titre en ASCII art)
+- Combat tour par tour au choix de compétence (Coup de poing / Boule de Feu), avec mana et coup critique aléatoire ("Toucher du Destin")
+- Initiative déterminant qui attaque en premier selon la classe
+- Système d'expérience et de niveaux
+- Histoire à choix en 6 chapitres, menant à un combat final contre "Ton Ombre" avec 2 fins possibles
+- Musique de fond activable/désactivable
+- Interface stylisée (couleurs violet/blanc, écran titre en ASCII art centré, effet machine à écrire)
+- Easter egg "Qui sont-ils ?" dans les crédits
 
 ## Équipe
 
-- Alexis 
+- Alexis
 - Leandro
 
 ## Prérequis

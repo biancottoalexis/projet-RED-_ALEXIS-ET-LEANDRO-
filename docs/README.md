@@ -1,3 +1,12 @@
+
+
+
+
+
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/a80673ec-90ad-4fe1-88a1-8b10dd991a30" />
+
+
+
 # Shadow of Destiny
 
 Mini-jeu de rôle en ligne de commande (CLI) développé en Go, dans le cadre du Projet RED (Ymmersion — Aix Ynov Campus).
